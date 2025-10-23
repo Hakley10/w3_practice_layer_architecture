@@ -12,6 +12,7 @@ class Question{
   Question({String? id, required this.title, required this.choices, required this.goodChoice, required this.point}) : id = id ?? uuid.v4();
 
    Map<String, dynamic> toJson() => {
+         'id': id,
         'title': title,
         'choices': choices,
         'goodChoice': goodChoice,
@@ -20,6 +21,7 @@ class Question{
   
   factory Question.fromJson(Map<String, dynamic> json) {
     return Question(
+      id : json['id'],
       title: json['title'],
       choices: List<String>.from(json['choices']),
       goodChoice: json['goodChoice'],
